@@ -1,19 +1,19 @@
 version: "3"
 services:
-   web:
-     image: "${DOCKER_IMAGE}"
-     ports:
-     - "8001-8002:80"
-     deploy:
-        replicas: 2
-     depends_on:
-     - mysql
-   mysql:
-     image: devopstrainer/java-mvn-privaterepos:mysql
-     volumes:
-     - db_data:/var/lib/mysql
-     environment:
-        MYSQL_ROOT_PASSWORD: password
-        MYSQL_DATABASE: mydatabase
+  web:
+    image: "${DOCKER_IMAGE}"
+    ports:
+      - "8001-8002:80"
+    deploy:
+      replicas: 2
+    depends_on:
+      - mysql
+  mysql:
+    image: xpc6186/java-mvn-privaterepos:mysql
+    volumes:
+      - db_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: mydatabase
 volumes:
-   db_data: {}
+  db_data: {}
